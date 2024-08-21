@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   AiOutlineHome,
   AiOutlineLike,
@@ -24,9 +23,9 @@ import {
   IoNewspaperOutline,
 } from "react-icons/io5";
 import { BiMoviePlay, BiHelpCircle } from "react-icons/bi";
-import { FaShopify, FaUser, } from "react-icons/fa6";
+import { FaShopify, FaUser } from "react-icons/fa6";
 import { PiStudentFill } from "react-icons/pi";
-import { FcStart, FcFeedback,  } from "react-icons/fc";
+import { FcStart, FcFeedback } from "react-icons/fc";
 import { ImYoutube2 } from "react-icons/im";
 import { SiYoutubemusic } from "react-icons/si";
 import { VscReport } from "react-icons/vsc";
@@ -39,13 +38,13 @@ const SideBar = () => {
 
   const btns = [
     { icon: <AiOutlineHome />, name: "Home", to: "/" },
-    { icon: <BsPlayBtn />, name: "Shorts", to: "/" },
-    { icon: <MdOutlineSubscriptions />, name: "Subscriptions", to: "/" },
-    { icon: <MdOutlineVideoLibrary />, name: "Library", to: "/" },
-    { icon: <GrHistory />, name: "History", to: "/" },
+    { icon: <BsPlayBtn />, name: "Shorts", },
+    { icon: <MdOutlineSubscriptions />, name: "Subscriptions", },
+    { icon: <MdOutlineVideoLibrary />, name: "Library", },
+    { icon: <GrHistory />, name: "History", },
     { icon: <GoVideo />, name: "Your Videos", to: "/" },
-    { icon: <MdOutlineWatchLater />, name: "Watch Later", to: "/" },
-    { icon: <AiOutlineLike />, name: "Liked Videos", to: "/" },
+    { icon: <MdOutlineWatchLater />, name: "Watch Later", },
+    { icon: <AiOutlineLike />, name: "Liked Videos", },
   ];
 
   const subscriptions = [
@@ -85,31 +84,29 @@ const SideBar = () => {
   const renderButtons = (btnList) =>
     btnList.map((btn, i) => (
       <li key={i} className="py-2 flex hover:bg-gray-200 rounded-lg pl-2">
-        <Link to={btn.to} className="flex">
-          <span className="mr-5 mt-1 text-xl">{btn.icon}</span> {btn.name}
-        </Link>
+        <span className="mr-5 mt-1 text-xl">{btn.icon}</span> {btn.name}
       </li>
     ));
 
   return (
     <div className="relative h-screen w-64 md:w-72 lg:w-80 overflow-y-auto">
       <div className="sticky top-0">
-      <ul>{renderButtons(btns)}</ul>
-      <hr className="mt-2" />
-      <h3 className="font-bold mt-5">Subscriptions</h3>
-      <ul>{renderButtons(subscriptions)}</ul>
-      <hr className="mt-2" />
-      <h3 className="font-bold mt-5">Explore</h3>
-      <ul>{renderButtons(explore)}</ul>
-      <hr className="mt-2" />
-      <h3 className="font-bold mt-5">More from YouTube</h3>
-      <ul>{renderButtons(moreFromYoutube)}</ul>
-      <hr className="mt-2" />
-      <ul>{renderButtons(settings)}</ul>
-      <hr className="mt-2"></hr>
-      <div className="text-xs mt-5 text-gray-600">
-        © 2024 Mehul Kumar. All rights reserved.
-      </div>
+        <ul>{renderButtons(btns)}</ul>
+        <hr className="mt-2" />
+        <h3 className="font-bold mt-5">Subscriptions</h3>
+        <ul>{renderButtons(subscriptions)}</ul>
+        <hr className="mt-2" />
+        <h3 className="font-bold mt-5">Explore</h3>
+        <ul>{renderButtons(explore)}</ul>
+        <hr className="mt-2" />
+        <h3 className="font-bold mt-5">More from YouTube</h3>
+        <ul>{renderButtons(moreFromYoutube)}</ul>
+        <hr className="mt-2" />
+        <ul>{renderButtons(settings)}</ul>
+        <hr className="mt-2" />
+        <div className="text-xs mt-5 text-gray-600">
+          © 2024 Mehul Kumar. All rights reserved.
+        </div>
       </div>
     </div>
   );

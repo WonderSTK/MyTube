@@ -60,7 +60,7 @@ const SearchBar = ({
   }, [isListening, setSearchQuery, setQuery]);
 
   return (
-    <div className="my-2">
+    <div className="my-2 relative">
       <div className="flex items-center shadow-lg md:shadow-none">
         <BiArrowBack
           className="ml-1 md:hidden"
@@ -98,27 +98,25 @@ const SearchBar = ({
       {isSearchBoxOpen && searchSuggestions.length > 0 && (
         <div
           ref={wrapperRef}
-          className="border-2 rounded-xl py-2 w-[35rem] border-gray-100 absolute bg-white font-medium shadow-sm"
+          className="border-2 rounded-xl py-2 w-[35rem] border-gray-100 absolute bg-white font-medium shadow-sm z-50"
         >
           <ul>
-            {searchSuggestions.map((item, i) => {
-              return (
-                <li
-                  key={i}
-                  onClick={() => {
-                    setIsSearchBoxOpen(false);
-                    setQuery(item);
-                  }}
+            {searchSuggestions.map((item, i) => (
+              <li
+                key={i}
+                onClick={() => {
+                  setIsSearchBoxOpen(false);
+                  setQuery(item);
+                }}
+              >
+                <Link
+                  className="flex px-5 py-1 gap-2 items-center hover:bg-gray-100"
+                  to={`results/?search_query=${item}`}
                 >
-                  <Link
-                    className="flex px-5 py-1 gap-2 items-center hover:bg-gray-100"
-                    to={`results/?search_query=${item}`}
-                  >
-                    <AiOutlineSearch /> {item}
-                  </Link>
-                </li>
-              );
-            })}
+                  <AiOutlineSearch /> {item}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}
