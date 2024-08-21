@@ -36,20 +36,20 @@ install Dependencies:
 Navigate to the project directory and install the necessary dependencies:
 
 2. **Set Up Environment Variables:**:  
-   ```bash
-npm install
+   ```bash npm install
+
 
 Create a .env file in the root directory and add your YouTube API key:
 
 3. **Run the Application::**:  
-   ```bash
-GOOGLE_API_KEY=<your-api-key>
+   ```bash GOOGLE_API_KEY=<your-api-key>
+
 
 Start the development server:
 
 4. **Start your local host server::**:  
-   ```bash
-npm start
+   ```bash npm start
+
 Open your browser and go to http://localhost:3000 to explore MyTube.
 
 📚 Conclusion
